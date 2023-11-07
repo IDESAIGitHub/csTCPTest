@@ -19,10 +19,7 @@ public partial class Form1 : Form
     public Form1()
     {
         InitializeComponent();
-        _server = new TcpListener(IPAddress.Any, 420);
-        _server.Start();
-        _client = _server.AcceptTcpClient();
-
+       
         //_client = new TcpClientExample();
 
         //_client.ConnectAsync();
@@ -42,7 +39,8 @@ public partial class Form1 : Form
         if (_client != null)
         {
             NetworkStream stream = _client.GetStream();
-            string message = "Hello World \n" + (char) 3;
+            string tb = textBox1.Text;
+            string message = (char)2 + tb + (char)3;
             byte[] data = Encoding.UTF8.GetBytes(message);
             stream.Write(data, 0, data.Length);
         }
@@ -52,6 +50,8 @@ public partial class Form1 : Form
         }
     }
 
+
+
     private void Form1_Load(object sender, EventArgs e)
     {
 
@@ -60,13 +60,14 @@ public partial class Form1 : Form
     private void Form1_FormClosed(object sender, FormClosedEventArgs e)
     {
         //_client.Disconnect();
-        if (_server != null)
-        {
-            _server.Stop();
-        }
-        if (_client != null)
-        {
-            _client.Close();
-        }
+        _server?.Stop();
+        _client?.Close();
+    }
+
+    private void button2_Click(object sender, EventArgs e)
+    {
+        _server = new TcpListener(IPAddress.Any, 420);
+        _server.Start();
+        _client = _server.AcceptTcpClient();
     }
 }
