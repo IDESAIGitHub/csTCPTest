@@ -13,13 +13,11 @@ public partial class Form1 : Form
     private TcpListener _server = null;
     private TcpClient _client;
 
-
-
     //private TcpClientExample _client;
     public Form1()
     {
         InitializeComponent();
-       
+
         //_client = new TcpClientExample();
 
         //_client.ConnectAsync();
@@ -64,7 +62,7 @@ public partial class Form1 : Form
         _client?.Close();
     }
 
-    private void button2_Click(object sender, EventArgs e)
+    private void CreateServer_Click(object sender, EventArgs e)
     {
         _server = new TcpListener(IPAddress.Any, 420);
         _server.Start();
