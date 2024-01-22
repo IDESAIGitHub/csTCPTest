@@ -8,5 +8,6 @@ namespace TCPClient
 {
     internal class lll
     {
+        int a;
     }
 }
