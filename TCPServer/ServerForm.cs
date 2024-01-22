@@ -8,13 +8,13 @@ namespace TCPZebra_test;
 
 
 
-public partial class Form1 : Form
+public partial class ServerForm : Form
 {
     private TcpListener _server = null;
     private TcpClient _client;
 
     //private TcpClientExample _client;
-    public Form1()
+    public ServerForm()
     {
         InitializeComponent();
 

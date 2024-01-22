@@ -1,6 +1,6 @@
 ﻿namespace TCPZebra_test
 {
-    partial class Form1
+    partial class ServerForm
     {
         /// <summary>
         ///  Required designer variable.
